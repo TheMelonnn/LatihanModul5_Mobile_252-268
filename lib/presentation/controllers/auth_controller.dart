@@ -47,4 +47,5 @@ class AuthController extends GetxController {
     await _auth.signOut();
     Get.offAll(LoginPage());
   }
+  
 }

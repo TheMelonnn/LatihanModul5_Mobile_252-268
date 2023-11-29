@@ -28,62 +28,74 @@ class _LoginPageState extends State<userLoginPage> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.end,
           children: [
-            Container(child: Image.asset(
+            Container(
+              child: Image.asset(
                 'assets/images/logo1.png',
                 width: 200,
                 height: 200,
-              ),),
+              ),
+            ),
             Container(
-              padding: const EdgeInsets.all(24),height: 650,
-              decoration: BoxDecoration(borderRadius: BorderRadius.only(topLeft: Radius.circular(50),topRight: Radius.circular(50)),
-              color: const Color(0xFFF5F5F5)),
+              padding: const EdgeInsets.all(24),
+              height: 580,
+              decoration: BoxDecoration(
+                  borderRadius: BorderRadius.only(
+                      topLeft: Radius.circular(50),
+                      topRight: Radius.circular(50)),
+                  color: const Color(0xFFF5F5F5)),
               child: Column(
                 children: [
                   SizedBox(
-                width: 360,
-                height: 40,
-                child: const Text(
-                  "Login",
-                  style: TextStyle(fontWeight: FontWeight.bold, fontSize: 24),
-                  textAlign: TextAlign.start,
-                )),
-            SizedBox(
-                width: 360,
-                height: 40,
-                child: const Text(
-                  "Sign In to your account to continue where you left",
-                  style: TextStyle(fontSize: 14),
-                  textAlign: TextAlign.start,
-                )),
-            Container(
-              width: 360,
-              height: 60,
-              padding: EdgeInsets.fromLTRB(24, 6, 20, 0),
-              decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(30), color: const Color(0xFFD4D4D4)),
-              child: TextField(
-                controller: _emailController,
-                decoration: InputDecoration(
-                    hintText: "Email", border: InputBorder.none),
-              ),
-            ),
-            SizedBox(
-              height: 20,
-            ),
-            Container(
-              width: 360,
-              height: 60,
-              padding: EdgeInsets.fromLTRB(24, 6, 20, 0),
-              decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(30), color: const Color(0xFFD4D4D4)),
-              child: TextField(
-                controller: _passwordController,
-                obscureText: true,
-                decoration: InputDecoration(hintText: "Password", border: InputBorder.none),
-              ),
-            ),
-            SizedBox(height: 20,),
-            SizedBox(
+                      width: 360,
+                      height: 40,
+                      child: const Text(
+                        "Login",
+                        style: TextStyle(
+                            fontWeight: FontWeight.bold, fontSize: 24),
+                        textAlign: TextAlign.start,
+                      )),
+                  SizedBox(
+                      width: 360,
+                      height: 40,
+                      child: const Text(
+                        "Sign In to your account to continue where you left",
+                        style: TextStyle(fontSize: 14),
+                        textAlign: TextAlign.start,
+                      )),
+                  Container(
+                    width: 360,
+                    height: 60,
+                    padding: EdgeInsets.fromLTRB(24, 6, 20, 0),
+                    decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(30),
+                        color: const Color(0xFFD4D4D4)),
+                    child: TextField(
+                      controller: _emailController,
+                      decoration: InputDecoration(
+                          hintText: "Email", border: InputBorder.none),
+                    ),
+                  ),
+                  SizedBox(
+                    height: 20,
+                  ),
+                  Container(
+                    width: 360,
+                    height: 60,
+                    padding: EdgeInsets.fromLTRB(24, 6, 20, 0),
+                    decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(30),
+                        color: const Color(0xFFD4D4D4)),
+                    child: TextField(
+                      controller: _passwordController,
+                      obscureText: true,
+                      decoration: InputDecoration(
+                          hintText: "Password", border: InputBorder.none),
+                    ),
+                  ),
+                  SizedBox(
+                    height: 20,
+                  ),
+                  SizedBox(
                     width: 200,
                     height: 50,
                     child: TextButton(
@@ -94,13 +106,13 @@ class _LoginPageState extends State<userLoginPage> {
                         ),
                       ),
                       onPressed: _authController.isLoading.value
-                    ? null
-                    : () {
-                        _authController.loginUser(
-                          _emailController.text,
-                          _passwordController.text,
-                        );
-                      },
+                          ? null
+                          : () {
+                              _authController.loginUser(
+                                _emailController.text,
+                                _passwordController.text,
+                              );
+                            },
                       child: const Text(
                         'Login',
                         style: TextStyle(

@@ -1,18 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:module_app/presentation/controllers/account_controller_appwriter.dart';
 import 'package:module_app/presentation/controllers/auth_controller.dart';
 
-import '../../routes/routes.dart';
-
-class RegisterPage extends StatefulWidget {
+class AppwriteRegisterPage extends StatefulWidget {
   @override
-  State<RegisterPage> createState() => _RegisterPageState();
+  State<AppwriteRegisterPage> createState() => _AppwriteRegisterPageState();
 }
 
-class _RegisterPageState extends State<RegisterPage> {
-  final AuthController _authController = Get.put(AuthController());
+class _AppwriteRegisterPageState extends State<AppwriteRegisterPage> {
+  final AccountController _appwriterController = Get.put(AccountController());
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
+  final TextEditingController _nameController = TextEditingController();
   @override
   void dispose() {
     _emailController.dispose();
@@ -97,6 +97,22 @@ class _RegisterPageState extends State<RegisterPage> {
                   SizedBox(
                     height: 20,
                   ),
+                  Container(
+                    width: 360,
+                    height: 60,
+                    padding: EdgeInsets.fromLTRB(24, 6, 20, 0),
+                    decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(30),
+                        color: const Color(0xFFD4D4D4)),
+                    child: TextField(
+                      controller: _nameController,
+                      decoration: InputDecoration(
+                          hintText: "Name", border: InputBorder.none),
+                    ),
+                  ),
+                  SizedBox(
+                    height: 20,
+                  ),
                   SizedBox(
                     width: 200,
                     height: 50,
@@ -107,12 +123,13 @@ class _RegisterPageState extends State<RegisterPage> {
                           borderRadius: BorderRadius.circular(30),
                         ),
                       ),
-                      onPressed: _authController.isLoading.value
+                      onPressed: _appwriterController.isLoading.value
                           ? null
                           : () {
-                              _authController.registerUser(
+                              _appwriterController.createAccount(
                                 _emailController.text,
                                 _passwordController.text,
+                                _nameController.text
                               );
                             },
                       child: const Text(
@@ -123,18 +140,6 @@ class _RegisterPageState extends State<RegisterPage> {
                         ),
                       ),
                     ),
-                  ),
-                  SizedBox(
-                    height: 5,
-                  ),
-                  TextButton(
-                    style: TextButton.styleFrom(
-                      textStyle: const TextStyle(fontSize: 18),
-                    ),
-                    onPressed: () {
-                      Get.toNamed(AppPage.AppwriteRegister);
-                    },
-                    child: const Text('Use AppWrite Instead'),
                   ),
                 ],
               ),

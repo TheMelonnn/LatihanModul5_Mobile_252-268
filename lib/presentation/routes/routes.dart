@@ -2,6 +2,7 @@ import 'package:get/get.dart';
 import 'package:module_app/presentation/bindings/userlogin.binding.dart';
 import 'package:module_app/presentation/pages/login/userlogin_page.dart';
 import 'package:module_app/presentation/pages/pages.dart';
+import 'package:module_app/presentation/pages/register/appwrite_register.dart';
 import '../bindings/bindings.dart';
 import 'package:module_app/presentation/pages/account/account.dart';
 
@@ -27,6 +28,9 @@ class AppPage {
     GetPage(name: Accounts,
             page: () => AccountsPage(),
     ),
+    GetPage(name: AppwriteRegister,
+            page: () => AppwriteRegisterPage(),
+    ),
   ];
 
   static getLogin() => login;
@@ -34,10 +38,12 @@ class AppPage {
   static getnewRegister() => newRegister;
   static getuserlogin()=> userLogin;
   static getAccount()=> Accounts;
+  static getAppwriteRegister ()=>AppwriteRegister;
 
   static String login = '/';
   static String dashboard = '/dashboard';
   static String newRegister = '/newRegister';
   static String userLogin = '/userlogin';
   static String Accounts = '/Accounts';
+  static String AppwriteRegister = '/AppwriteRegister';
 }
